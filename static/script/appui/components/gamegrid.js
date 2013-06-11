@@ -11,7 +11,7 @@ require.def("sudoku/appui/components/gamegrid",
 
 				self = this;
 
-				this._super("gamegrid", 9, 9);
+				grid = new Grid("gamegrid", 9, 9);
 
 				for(var i = 0; i < 9; i++) {
 					for(var j = 0; j < 9; j++) {
