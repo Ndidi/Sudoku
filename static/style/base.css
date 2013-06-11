@@ -138,69 +138,6 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 }
 
 
-/* Sample app specific styles */
-
-
-.button {
-    background-color: #DCDCDC;
-    display: inline-block;
-    text-align: center;
-    max-width: 600px;
-    padding: 8px;
-    margin: 5px;
-    color: #000000;
-}
-
-.buttonFocussed {
-    background-color: #FFD700;
-    color: #000000;
-}
-
-.buttonFocussed.menuendpoint {
-    background-color: #FFD700;
-}
-
-.background-none {
-    background-image: none !important;
-    background-color: transparent !important;
-}
-
-.description {
-    text-align: center;
-    display: block;
-    position: absolute;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    padding: 8px 0px;
-}
-
-#testPlayer {
-    z-index: 0;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 1280px;
-    height: 720px;
-}
-
-#playerButtons {
-    z-index: 1;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: block;
-    text-align: center;
-    padding: 8px;
-    color: #000000;
-}
-
-#playerButtons .button {
-    width: 75px;
-    padding: 10px;
-    text-align: center;
-    margin: 5px;
-}
-
 /* Display & Visibility Helpers */
 .display-none {
     display: none !important;
@@ -241,6 +178,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     height: 40px;
     line-height: 40px;
     font-size: 120%;
+    color: #000;
 }
 
 #gamegrid .buttonFocussed {
