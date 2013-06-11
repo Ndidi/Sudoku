@@ -228,7 +228,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 #gamegrid .row {
     margin: 0px;
     padding: 0px;
-    height: 50px;
+    height: 42px;
 }
 
 #gamegrid .button {
@@ -236,9 +236,11 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     display: inline-block;
     text-align: center;
     padding: 0px;
-    margin: 5px;
+    margin: 1px;
     width: 40px;
     height: 40px;
+    line-height: 40px;
+    font-size: 120%;
 }
 
 #gamegrid .buttonFocussed {
