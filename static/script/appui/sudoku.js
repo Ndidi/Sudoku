@@ -49,7 +49,7 @@ require.def('sudoku/appui/sudoku',
                 // Called from run() as we need the framework to be ready beforehand.
                 this._setRootContainer();
                 // Create maincontainer and add simple component to it
-                this.addComponentContainer("maincontainer", "sudoku/appui/components/simple");
+                this.addComponentContainer("maincontainer", "sudoku/appui/components/game");
             }
         });     
     }
