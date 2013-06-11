@@ -40,7 +40,7 @@ if (!file_exists('antie/php/antieframework.php')) {
 require('antie/php/antieframework.php');
 
 // Enable javascript cache busting (this should be disabled in production mode)
-$javascript_cache_busting = true;
+$javascript_cache_busting = false;
 
 // Set up application ID and path to framework configuration directory
 $application_id = "sudoku";
