@@ -156,10 +156,11 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 #title {
     color: #fff;
     font-size: 200%;
-    line-height: 120%;
+    line-height: 200%;
     display: block;
     text-align: center;
     margin: 2% auto 0 auto;
+    font-weight: bold;
 }
 
 #gamegrid {
@@ -217,14 +218,17 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 
 .numberselector {
     position: absolute;
-    width: 120px;
-    height: 160px;
+    width: 132px;
+    height: 176px;
     z-index: 1;
-    background-color: yellow;
+    background-color: #2C3E50;
     top: 50%;
     left: 50%;
-    margin-top: -80px;
-    margin-left: -60px;
+    margin-top: -88px;
+    margin-left: -66px;
+    border-radius: 5px;
+    padding: 2px;
+
 }
 
 .numberselector .button {
@@ -232,7 +236,10 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     height: 40px;
     text-align: center;
     line-height: 40px;
-    color: black;
+    color: white;
+    background-color: #34495E;
+    margin: 2px;
+    font-size: 120%;
 }
 
 .numberselector #numberGrid .button {
@@ -241,11 +248,12 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 }
 
 .numberselector .button.buttonFocussed {
-    background-color: red;
+    background-color: white;
+    color: black;
 }
 
 .numberselector #controlList .button {
-    width: 60px;
+    width: 62px;
     text-align: center;
 }
 
