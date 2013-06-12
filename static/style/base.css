@@ -172,11 +172,11 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     margin-bottom: 5px;
 }
 
-#gamegrid .row .button:nth-child(3), #gamegrid .row .button:nth-child(6) {
+#gamegrid .row .container:nth-child(3), #gamegrid .row .container:nth-child(6) {
     margin-right: 5px;
 }
 
-#gamegrid .button {
+#gamegrid .container {
     background-color: #fff;
     display: inline-block;
     text-align: center;
@@ -187,21 +187,53 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     line-height: 40px;
     font-size: 120%;
     color: #000;
+    position: relative;
+}
+
+#gamegrid .container .button {
+    margin: 0;
 }
 
 #gamegrid .buttonFocussed {
     background-color: #F1C40F;
 }
 
-#gamegrid .hint {
+#gamegrid .container.hint .button {
     background-color: #BDC3C7;
 }
 
-#gamegrid .hint.buttonFocussed {
+#gamegrid .container.hint .button.buttonFocussed {
     background-color: #F1C40F;
 }
 
-#gamegrid .error {
+#gamegrid .container.error .label {
     color: #C0392B;
     font-weight: bold;
+}
+
+.numberselector {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: yellow;
+}
+
+.numberselector .button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: black;
+}
+
+.numberselector .button.buttonFocussed {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
 }

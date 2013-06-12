@@ -4,10 +4,12 @@ require.def("sudoku/appui/components/game",
 		"antie/widgets/label",
 		"antie/widgets/grid",
 		"antie/widgets/button",
+		"antie/widgets/container",
 		"antie/events/keyevent",
+		"sudoku/appui/components/numberselector",
 		"sudoku/lib/sudoku"
 	],
-	function (Component, Label, Grid, Button, KeyEvent) {
+	function (Component, Label, Grid, Button, Container, KeyEvent, NumberSelector) {
 		return Component.extend({
 			init: function () {
 				var self = this;
@@ -20,23 +22,31 @@ require.def("sudoku/appui/components/game",
 
 				for(var row = 0; row < 9; row++) {
 					for(var col = 0; col < 9; col++) {
+						var square = new Container();
 						var button = new Button();
 
-						button._row = row;
-						button._col = col;
+						square._row = row;
+						square._col = col;
 
 						button.appendChildWidget(new Label("label_" + row + "_" + col, "&nbsp"));
 
-						this._gameGrid.setWidgetAt(col, row, button);
+						square.appendChildWidget(button);
+
+						this._gameGrid.setWidgetAt(col, row, square);
 					}
 				}
 
 				this.appendChildWidget(this._gameGrid);
 
+				this._numberSelector = new NumberSelector();
+
+				this.appendChildWidget(this._numberSelector);
+
 				this.addEventListener('keydown', function(e) { self._onKeyDown(e); });
+				this.addEventListener('select', function(e) { self._onSelect(e); });
 
 				this._sudoku = new Sudoku();
-				this._sudoku.level = 2;
+				this._sudoku.level = 0;
 
 				this._sudoku.done = function() { self._updateGrid(); }
 
@@ -49,11 +59,11 @@ require.def("sudoku/appui/components/game",
 				if(e.keyCode >= KeyEvent.VK_1 && e.keyCode <= KeyEvent.VK_9) {
 					e.stopPropagation();
 
-					var activeButton = this._gameGrid._activeChildWidget;
+					var activeSquare = this._gameGrid._activeChildWidget;
 
-					if(!activeButton.hasClass("hint")) {
-						activeButton._childWidgetOrder[0].setText(e.keyChar);
-						this._sudoku.setVal(activeButton._row, activeButton._col, parseInt(e.keyChar));
+					if(!activeSquare.hasClass("hint")) {
+						activeSquare._childWidgetOrder[0]._childWidgetOrder[0].setText(e.keyChar);
+						this._sudoku.setVal(activeSquare._row, activeSquare._col, parseInt(e.keyChar));
 
 
 						this._showErrors();
@@ -63,13 +73,26 @@ require.def("sudoku/appui/components/game",
 				}
 			},
 
+			_onSelect: function(e) {
+
+				this._activeSquare = this._gameGrid._activeChildWidget;
+
+				if(e.target.hasClass("numberSelectorButton")) {
+					this._numberSelector.addClass("hidden");
+					this._activeSquare.focus();
+				} else if(!this._activeSquare.hasClass("hint")) {
+					this._numberSelector.removeClass("hidden");
+					this._numberSelector.focus();
+				}
+			},
+
 			_updateGrid: function() {
 				for(var row = 0; row < 9; row++) {
 					for(var col = 0; col < 9; col++) {
 						var squareValue = this._sudoku.getVal(row, col);
 						
 						if(squareValue != "0") {
-							this._gameGrid.getWidgetAt(col, row)._childWidgetOrder[0].setText(squareValue);
+							this._gameGrid.getWidgetAt(col, row)._childWidgetOrder[0]._childWidgetOrder[0].setText(squareValue);
 							this._gameGrid.getWidgetAt(col, row).addClass("hint");
 						}
 					}
@@ -91,12 +114,7 @@ require.def("sudoku/appui/components/game",
 						}
 					}
 				}
-			},
-
-			_getActiveSquareCoords: function() {
-
 			}
-
 
 		});
 	}
