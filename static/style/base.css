@@ -168,6 +168,14 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     height: 42px;
 }
 
+#gamegrid .row:nth-child(3n+3) {
+    margin-bottom: 5px;
+}
+
+#gamegrid .row .button:nth-child(3n+3) {
+    margin-right: 5px;
+}
+
 #gamegrid .button {
     background-color: #fff;
     display: inline-block;
@@ -182,6 +190,18 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 }
 
 #gamegrid .buttonFocussed {
-    background-color: #FFD700;
-    color: #000000;
+    background-color: #F1C40F;
+}
+
+#gamegrid .hint {
+    background-color: #BDC3C7;
+}
+
+#gamegrid .hint.buttonFocussed {
+    background-color: #F1C40F;
+}
+
+#gamegrid .error {
+    color: #C0392B;
+    font-weight: bold;
 }
