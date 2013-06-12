@@ -149,6 +149,10 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 
 /* Sudoku on TAL styles */
 
+#game {
+    position: relative;
+}
+
 #title {
     color: #fff;
     font-size: 200%;
@@ -215,10 +219,12 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     position: absolute;
     width: 120px;
     height: 160px;
-    top: 0px;
-    left: 0px;
     z-index: 1;
     background-color: yellow;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -60px;
 }
 
 .numberselector .button {
