@@ -18,18 +18,18 @@ require.def("sudoku/appui/components/numberselector",
 
 				var list = new VerticalList();
 
-				var grid = new Grid("numberGrid", 3, 3);
+				this._grid = new Grid("numberGrid", 3, 3);
 
 				for(var i = 0; i < 3; i++) {
 					for(var j = 0; j < 3; j++) {
 						var button = new Button();
 						button.appendChildWidget(new Label(i*3 + j + 1));
 						button.addClass("numberSelectorButton");
-						grid.setWidgetAt(j, i, button);
+						this._grid.setWidgetAt(j, i, button);
 					}
 				}
 
-				list.appendChildWidget(grid);
+				list.appendChildWidget(this._grid);
 
 				var controlList = new HorizontalList("controlList");
 
@@ -49,6 +49,10 @@ require.def("sudoku/appui/components/numberselector",
 
 				this.addClass("hidden");
 			},
+
+			focus: function() {
+				this._grid.getWidgetAt(1, 1).focus();
+			}
 
 		})
 	}
