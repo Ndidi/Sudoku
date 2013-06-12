@@ -54,6 +54,13 @@ require.def("sudoku/appui/components/game",
 	
 			},
 
+			setSquare: function(row, col, value) {
+				this._activeSquare._childWidgetOrder[0]._childWidgetOrder[0].setText(value == 0 ? "&nbsp" : value);
+				this._sudoku.setVal(row, col, parseInt(value));
+
+				this._showErrors();
+			},
+
 			_onKeyDown: function(e) {
 				// Only allow digits 1-9 to be entered
 				if(e.keyCode >= KeyEvent.VK_1 && e.keyCode <= KeyEvent.VK_9) {
@@ -78,6 +85,17 @@ require.def("sudoku/appui/components/game",
 				this._activeSquare = this._gameGrid._activeChildWidget;
 
 				if(e.target.hasClass("numberSelectorButton")) {
+					var text = e.target._childWidgetOrder[0].getText();
+					
+					if (text == "Clear") {
+						console.log("Clear");
+						this.setSquare(this._activeSquare._row, this._activeSquare._col, 0);
+
+					} else if(text != "Back") {
+						console.log("Number " + text);
+						this.setSquare(this._activeSquare._row, this._activeSquare._col, parseInt(text));
+					}
+
 					this._numberSelector.addClass("hidden");
 					this._activeSquare.focus();
 				} else if(!this._activeSquare.hasClass("hint")) {

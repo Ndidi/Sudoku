@@ -214,7 +214,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .numberselector {
     position: absolute;
     width: 120px;
-    height: 120px;
+    height: 160px;
     top: 0px;
     left: 0px;
     z-index: 1;
@@ -223,15 +223,24 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 
 .numberselector .button {
     display: inline-block;
-    width: 40px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     color: black;
 }
 
+.numberselector #numberGrid .button {
+    width: 40px;
+
+}
+
 .numberselector .button.buttonFocussed {
     background-color: red;
+}
+
+.numberselector #controlList .button {
+    width: 60px;
+    text-align: center;
 }
 
 .hidden {
