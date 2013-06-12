@@ -168,11 +168,11 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     height: 42px;
 }
 
-#gamegrid .row:nth-child(3n+3) {
+#gamegrid .row:nth-child(3), #gamegrid .row:nth-child(6) {
     margin-bottom: 5px;
 }
 
-#gamegrid .row .button:nth-child(3n+3) {
+#gamegrid .row .button:nth-child(3), #gamegrid .row .button:nth-child(6) {
     margin-right: 5px;
 }
 
