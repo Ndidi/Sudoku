@@ -7,34 +7,3 @@
     margin: -540px auto 0 auto;
     background-image: url(../../img/zen_1080.jpg);
 }
-
-#helloWorldLabel, #welcomeLabel {
-    display: block;
-    text-align: center;
-}
-
-#helloWorldLabel {
-    font-size: 90px;
-    padding-top: 342px;
-    font-weight: bold;
-}
-
-#welcomeLabel {
-    font-size: 39px;
-}
-
-#simplecarousel_mask {
-    top: 234px;
-}
-
-.description {
-    top: 97px;
-    font-size: 39px;
-}
-
-#playerButtons {
-    bottom: 58px;
-    width: 1170px;
-    padding: 15px;
-    left: 352px;
-}
