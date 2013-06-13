@@ -1,26 +1,14 @@
-/**
- * @preserve Copyright (c) 2013 British Broadcasting Corporation
- * (http://www.bbc.co.uk) and TAL Contributors (1)
- *
- * (1) TAL Contributors are listed in the AUTHORS file and at
- *     https://github.com/fmtvp/TAL/AUTHORS - please extend this file,
- *     not this notice.
- *
- * @license Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * All rights reserved
- * Please contact us for an alternative licence
- */
+@font-face {
+    font-family: "Domo";
+    src:    url('../font/DOMOAI__.TTF');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: "Domo";
+    src:    url('../font/DOMOAN__.TTF');
+    font-weight: normal;
+}
 
 html {
     height: 100%;
@@ -118,7 +106,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .samsung.layout540p #app {
     width: 960px;
     height: 540px;
-    background-image: url(../img/bbc_background_540.png);
+    background-image: url(../img/zen_540.jpg);
     background-repeat: no-repeat;
     background-color: red;
 }
@@ -126,7 +114,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .samsung.layout720p #app {
     width: 1280px;
     height: 720px;
-    background-image: url(../img/bbc_background_720.png);
+    background-image: url(../img/zen_720.jpg);
     background-repeat: no-repeat;
 }
 
@@ -155,7 +143,8 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 
 #title {
     color: #fff;
-    font-size: 200%;
+    font-family: "Domo", "Helvetica", sans-serif;
+    font-size: 40px;
     line-height: 200%;
     display: block;
     text-align: center;
