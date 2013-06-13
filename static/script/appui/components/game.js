@@ -7,9 +7,10 @@ require.def("sudoku/appui/components/game",
 		"antie/widgets/container",
 		"antie/events/keyevent",
 		"sudoku/appui/components/numberselector",
+    "sudoku/appui/components/timerlabel",
 		"sudoku/lib/sudoku"
 	],
-	function (Component, Label, Grid, Button, Container, KeyEvent, NumberSelector) {
+	function (Component, Label, Grid, Button, Container, KeyEvent, NumberSelector, TimerLabel) {
 		return Component.extend({
 			init: function () {
 				var self = this;
@@ -45,6 +46,12 @@ require.def("sudoku/appui/components/game",
 				this.addEventListener('keydown', function(e) { self._onKeyDown(e); });
 				this.addEventListener('select', function(e) { self._onSelect(e); });
 
+
+        //Add timer
+        this.appendChildWidget(new TimerLabel());
+
+
+        //Start game
 				this._sudoku = new Sudoku();
 				this._sudoku.level = 0;
 
