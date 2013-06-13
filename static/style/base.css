@@ -208,7 +208,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .numberselector {
     position: absolute;
     width: 132px;
-    height: 176px;
+    height: 220px;
     z-index: 1;
     background-color: #2C3E50;
     top: 50%;
@@ -244,6 +244,10 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .numberselector #controlList .button {
     width: 62px;
     text-align: center;
+}
+
+.numberselector #solve {
+    width: 128px;
 }
 
 .hidden {

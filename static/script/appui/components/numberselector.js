@@ -45,6 +45,11 @@ require.def("sudoku/appui/components/numberselector",
 
 				list.appendChildWidget(controlList);
 
+				var solveButton = new Button("solve");
+				solveButton.appendChildWidget(new Label("Solve"));
+				solveButton.addClass("numberSelectorButton");
+				list.appendChildWidget(solveButton);
+
 				this.appendChildWidget(list);
 
 				this.addClass("hidden");
