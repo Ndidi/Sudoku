@@ -96,10 +96,10 @@ require.def("sudoku/appui/components/game",
 						this.setSquare(this._activeSquare._row, this._activeSquare._col, parseInt(text));
 					}
 
-					this._numberSelector.addClass("hidden");
+					this._numberSelector.hideSelector();
 					this._activeSquare.focus();
 				} else if(!this._activeSquare.hasClass("hint")) {
-					this._numberSelector.removeClass("hidden");
+					this._numberSelector.showSelector();
 					this._numberSelector.focus();
 				}
 			},

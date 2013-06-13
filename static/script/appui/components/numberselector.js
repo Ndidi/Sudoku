@@ -52,8 +52,29 @@ require.def("sudoku/appui/components/numberselector",
 
 			focus: function() {
 				this._grid.getWidgetAt(1, 1).focus();
-			}
+			},
 
+      hideSelector: function(){
+        var self = this;
+        var device = window.getDevice();
+        device.hideElement({
+          el: self.outputElement,
+          duration: 500,
+          easing: 'easeOut'
+        });
+      },
+
+      showSelector: function(){
+        this.removeClass("hidden");
+        var self = this;
+        var device = window.getDevice();
+        device.showElement({
+          el: self.outputElement,
+          duration: 500,
+          easing: 'linear'
+        });
+        this.focus();
+      }
 		})
 	}
 );

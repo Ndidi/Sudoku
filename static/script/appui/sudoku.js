@@ -46,6 +46,11 @@ require.def('sudoku/appui/sudoku',
             },
             
             run: function() {
+
+                var device = this.getDevice();
+                window.getDevice = function () {
+                  return device;
+                };
                 // Called from run() as we need the framework to be ready beforehand.
                 this._setRootContainer();
                 // Create maincontainer and add simple component to it
