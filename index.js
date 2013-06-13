@@ -35,22 +35,29 @@ app.get('/', function(req, res){
   var deviceConfigPath = antieConfigPath + '/devices/' + deviceConfigName + "-default.json";
 
   fs.readFile(deviceConfigPath, function (err, data) {
-    if (err) throw err;
+    if (!err) {
 
-    var deviceConfig = data.toString('utf8');
-    deviceConfig = deviceConfig.replace(/%application%/mg, appId);
-    var deviceConfigObj = JSON.parse(deviceConfig);
+      var deviceConfig = data.toString('utf8');
+      deviceConfig = deviceConfig.replace(/%application%/mg, appId);
+      var deviceConfigObj = JSON.parse(deviceConfig);
 
-    res.setHeader('Content-Type', antieF.getMimeType(deviceConfigObj));
-      res.render('index', {
-        doctype: antieF.getDocType(deviceConfigObj),
-        html: antieF.getRootHtmlTag(deviceConfigObj),
-        deviceHeaders: antieF.getDeviceHeaders(deviceConfigObj),
-        appId: appId,
-        jsCacheBust: jsCacheBust,
-        deviceConfig: deviceConfig,
-        deviceBody: antieF.getDeviceBody(deviceConfigObj)
-    });
+      res.setHeader('Content-Type', antieF.getMimeType(deviceConfigObj));
+        res.render('index', {
+          doctype: antieF.getDocType(deviceConfigObj),
+          html: antieF.getRootHtmlTag(deviceConfigObj),
+          deviceHeaders: antieF.getDeviceHeaders(deviceConfigObj),
+          appId: appId,
+          jsCacheBust: jsCacheBust,
+          deviceConfig: deviceConfig,
+          deviceBody: antieF.getDeviceBody(deviceConfigObj)
+      });
+
+    } else {
+      var body = 'device config not found';
+      res.setHeader('Content-Type', 'text/plain');
+      res.setHeader('Content-Length', body.length);
+      res.end(body);
+    }
   });
 });
 
