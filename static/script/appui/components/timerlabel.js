@@ -4,15 +4,21 @@ require.def("sudoku/appui/components/timerlabel",
   ],
   function(Label){
     return Label.extend({
-      init: function(){
-        this._super("timerLabel", 0);
+      init: function(id){
+        this._super(id, "00:00");
 
         var self = this;
-        self._count = 0;
+        self._seconds = 0;
+        self._minutes = 0;
 
-        window.setInterval(function () {
-          self._count = self._count + 1;
-          self.setText(self._count)
+        setInterval(function () {
+          self._seconds ++;
+          if(self._seconds > 59){
+            self._seconds = 0;
+            self._minutes ++;
+          }
+
+          self.setText(((self._minutes < 10)? "0":"")+self._minutes +":"+ ((self._seconds < 10)? "0":"") +self._seconds);
         },1000);
       }
     });

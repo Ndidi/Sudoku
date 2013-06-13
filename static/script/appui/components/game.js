@@ -48,7 +48,7 @@ require.def("sudoku/appui/components/game",
 
 
         //Add timer
-        this.appendChildWidget(new TimerLabel());
+        this.appendChildWidget(new TimerLabel("timerLabel"));
 
 
         //Start game
