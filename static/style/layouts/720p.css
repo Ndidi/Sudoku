@@ -7,3 +7,41 @@
     margin: -360px auto 0 auto;
     background-image: url(../../img/zen_720.jpg);
 }
+
+.numberselector {
+    width: 132px;
+    height: 220px;
+    margin-top: -88px;
+    margin-left: -66px;
+    border-radius: 5px;
+    padding: 2px;
+
+}
+
+.numberselector .button {
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    background-color: #34495E;
+    margin: 2px;
+    font-size: 120%;
+}
+
+.numberselector #numberGrid .button {
+    width: 40px;
+}
+
+.numberselector #controlList .button {
+    width: 62px;
+    text-align: center;
+}
+
+.numberselector #solve {
+    width: 128px;
+}
+
+.numberselector #newGame {
+    width: 128px;
+}

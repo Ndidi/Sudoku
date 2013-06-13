@@ -121,7 +121,7 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 .samsung.layout1080p #app {
     width: 1920px;
     height: 1080px;
-    background-image: url(../img/bbc_background_1080.png);
+    background-image: url(../img/zen_1080.jpg);
     background-repeat: no-repeat;
 }
 
@@ -150,6 +150,10 @@ initial element background in the base stylesheet, not in dynamically loaded sty
     text-align: center;
     margin: 2% auto 0 auto;
     font-weight: bold;
+}
+
+#timerLabel{
+    font-family: "Domo";
 }
 
 #gamegrid {
@@ -206,48 +210,17 @@ initial element background in the base stylesheet, not in dynamically loaded sty
 }
 
 .numberselector {
+    font-family: "Domo";
     position: absolute;
-    width: 132px;
-    height: 220px;
     z-index: 1;
     background-color: #2C3E50;
     top: 50%;
     left: 50%;
-    margin-top: -88px;
-    margin-left: -66px;
-    border-radius: 5px;
-    padding: 2px;
-
-}
-
-.numberselector .button {
-    display: inline-block;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    color: white;
-    background-color: #34495E;
-    margin: 2px;
-    font-size: 120%;
-}
-
-.numberselector #numberGrid .button {
-    width: 40px;
-
 }
 
 .numberselector .button.buttonFocussed {
     background-color: white;
     color: black;
-}
-
-.numberselector #controlList .button {
-    width: 62px;
-    text-align: center;
-}
-
-.numberselector #solve {
-    width: 128px;
 }
 
 .hidden {

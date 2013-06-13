@@ -46,19 +46,13 @@ require.def("sudoku/appui/components/game",
 				this.addEventListener('keydown', function(e) { self._onKeyDown(e); });
 				this.addEventListener('select', function(e) { self._onSelect(e); });
 
+                //Add timer
+                this.appendChildWidget(new TimerLabel("timerLabel"));
 
-        //Add timer
-        this.appendChildWidget(new TimerLabel("timerLabel"));
-
-
-        //Start game
+                //Start game
 				this._sudoku = new Sudoku();
-				this._sudoku.level = 0;
-
 				this._sudoku.done = function() { self._updateGrid(true); }
-
-				this._sudoku.newGame();
-	
+				this._newGame();
 			},
 
 			setSquare: function(row, col, value) {
@@ -100,13 +94,13 @@ require.def("sudoku/appui/components/game",
 
 				if(e.target.hasClass("numberSelectorButton")) {
 					var text = e.target._childWidgetOrder[0].getText();
-					
-					if (text == "Clear") {
-						console.log("Clear");
-						this.setSquare(this._activeSquare._row, this._activeSquare._col, 0);
 
+					if (text == "Clear") {
+						this.setSquare(this._activeSquare._row, this._activeSquare._col, 0);
 					} else if(text == "Solve") {
 						this._solve();
+                    } else if(text == "New Game") {
+						this._newGame();
 					} else if(text != "Back") {
 						console.log("Number " + text);
 						this.setSquare(this._activeSquare._row, this._activeSquare._col, parseInt(text));
@@ -117,14 +111,14 @@ require.def("sudoku/appui/components/game",
 				} else if(!this._activeSquare.hasClass("hint")) {
 					this._numberSelector.showSelector();
 					this._numberSelector.focus();
-				} 
+				}
 			},
 
 			_updateGrid: function(addClass) {
 				for(var row = 0; row < 9; row++) {
 					for(var col = 0; col < 9; col++) {
 						var squareValue = this._sudoku.getVal(row, col);
-						
+
 						if(squareValue != "0") {
 							this._gameGrid.getWidgetAt(col, row)._childWidgetOrder[0]._childWidgetOrder[0].setText(squareValue);
 							if(addClass == true) { this._gameGrid.getWidgetAt(col, row).addClass("hint"); }
@@ -138,7 +132,7 @@ require.def("sudoku/appui/components/game",
 
 				for(var row = 0; row < 9; row++) {
 					for(var col = 0; col < 9; col++) {
-						
+
 						var button = this._gameGrid.getWidgetAt(col, row);
 
 						var value = this._sudoku.getVal(row, col);
@@ -156,13 +150,20 @@ require.def("sudoku/appui/components/game",
 
 			_gameFinished: function() {
 				console.log("Finished!");
-			},
+            },
 
-			_solve: function() {
-				this._sudoku.solveGame();
-				this._updateGrid(false);
+            _solve: function() {
+                this._sudoku.solveGame();
+                this._updateGrid(false);
+            },
 
-			}
+            _newGame: function(level){
+                this._sudoku.level = level || 0;
+
+                this._sudoku.newGame();
+                this._updateGrid(true);
+
+            }
 
 		});
 	}
