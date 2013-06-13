@@ -1,0 +1,39 @@
+{{{doctype}}}
+{{{html}}}
+<head>
+    {{{deviceHeaders}}}
+    <!-- Set up require aliases -->
+    <script type="text/javascript">
+        var require = {
+            baseUrl: "",
+            paths: {
+                {{{appId}}}: 'static/script',
+                antie : "antie/static/script"
+            },
+            priority: [],
+            {{#if jsCacheBust}}
+            urlArgs: "bust=" +  (new Date()).getTime(),
+            {{/if}}
+            callback: function() {}
+        };
+    </script>
+    <!-- Load require.js -->
+    <script type="text/javascript" src="antie/static/script/lib/require.js"></script>
+
+    <!-- Load application base style sheet -->
+    <link rel="stylesheet" href="static/style/base.css"/>
+
+    <!-- Expose device config to framework -->
+    <script>
+        var antie = {
+            framework: {
+                deviceConfiguration: {{{deviceConfig}}}
+            }
+        }
+    </script>
+</head>
+
+<body style="background: #000;">
+    {{{body}}}
+</body>
+</html>
